@@ -22,34 +22,58 @@ colors:
   pass-green: "#4ADE80"
 typography:
   display:
-    fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "clamp(2.7rem, 5.4vw, 5.4rem)"
+    fontFamily: "Archivo, Arial, Helvetica, sans-serif"
+    fontSize: "clamp(2.7rem, 5.6vw, 5.6rem)"
     fontWeight: 900
     lineHeight: 0.9
-    letterSpacing: "-0.04em"
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
   headline:
-    fontFamily: "Arial, Helvetica, sans-serif"
+    fontFamily: "Archivo, Arial, Helvetica, sans-serif"
     fontSize: "clamp(2rem, 4vw, 3.6rem)"
     fontWeight: 900
-    lineHeight: 0.95
-    letterSpacing: "-0.04em"
+    lineHeight: 0.98
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 88"
   title:
-    fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "1.25rem"
+    fontFamily: "Archivo, Arial, Helvetica, sans-serif"
+    fontSize: "1.5rem"
     fontWeight: 700
-    lineHeight: 1.3
+    lineHeight: 1.25
     letterSpacing: "-0.025em"
+  lead:
+    fontFamily: "Archivo, Arial, Helvetica, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 400
+    lineHeight: 1.78
   body:
-    fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "0.9375rem"
+    fontFamily: "Archivo, Arial, Helvetica, sans-serif"
+    fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.75
+  body-compact:
+    fontFamily: "Archivo, Arial, Helvetica, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 400
+    lineHeight: 1.87
+  meta:
+    fontFamily: "Archivo, Arial, Helvetica, sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 400
+    lineHeight: 1.5
+  nav:
+    fontFamily: "Archivo, Arial, Helvetica, sans-serif"
+    fontSize: "13px"
+    fontWeight: 500
   label:
     fontFamily: "Geist Mono, ui-monospace, monospace"
-    fontSize: "10px"
+    fontSize: "12px"
     fontWeight: 400
-    lineHeight: 1.4
-    letterSpacing: "0.24em"
+    lineHeight: 1.5
+  signature:
+    fontFamily: "Satisfy, cursive"
+    fontSize: "31px"
+    fontWeight: 400
 rounded:
   badge: "13px"
   card: "18px"
@@ -147,17 +171,21 @@ The palette has two layers: a warm, low-saturation brand shell, and saturated in
 
 ## Typography
 
-**Display Font:** Arial (with Helvetica, sans-serif)
-**Body Font:** Arial (with Helvetica, sans-serif)
-**Label/Mono Font:** Geist Mono (with ui-monospace, monospace)
+**Display Font:** Archivo, weight 900 at 88% width (with Arial, Helvetica, sans-serif)
+**Body Font:** Archivo, weight 400 at normal width (with Arial, Helvetica, sans-serif)
+**Data/Mono Font:** Geist Mono (with ui-monospace, monospace)
+**Signature Font:** Satisfy, only for the ADEEB signature and navbar logo
 
-**Character:** a blunt, heavy grotesk for headlines, made distinctive by weight 900 and tight negative tracking, paired with a precise mono that labels everything like an instrument panel. Note: `app/layout.tsx` loads Geist Sans, but `app/globals.css` sets `body` to Arial, so Arial is what actually renders for sans text.
+**Character:** a sturdy industrial grotesk. Headlines narrow it to 88% width and push it to 900 for a dense, signage-like block; body text uses the same family at normal width for easy reading. Geist Mono is reserved for real data. All three fonts are self-hosted through `next/font` in `app/layout.tsx`; `app/globals.css` sets Archivo on `body` and, at zero specificity, 88% width on every h1/h2 plus 0.1em word spacing on h1–h3 so headings tuned for Arial don't run words together.
 
 ### Hierarchy
-- **Display** (900, clamp(2.7rem → 5.4rem), line-height 0.92, -0.04em, uppercase): the hero headline, with its closing phrase in solid Faded Rose. Topic pages go larger, up to clamp(7rem → 16rem) for oversized section numerals and titles.
-- **Headline** (900, clamp(2rem → 3.6rem), 0.98, -0.04em): section titles in sentence case with a second phrase in an accent color ("Systems I've *taken apart.*"). The contact panel keeps its stacked uppercase "LET'S BUILD SOMETHING."
-- **Title** (700, 1.25–1.5rem, tight tracking): card and project titles.
-- **Body** (400, 14–16px, line-height 1.75): descriptions and article prose, kept to about 620px (roughly 70ch) wide.
+- **Display** (900, 88% width, clamp(2.7rem → 5.6rem), line-height 0.9, -0.02em, uppercase): the hero headline, with its closing phrase in solid Faded Rose. Topic pages go larger for oversized titles.
+- **Headline** (900, 88% width, clamp(2rem → 3.6rem), 0.98, -0.02em): section titles in sentence case with a second phrase in an accent color ("Systems I've *taken apart.*"). The contact panel keeps its stacked uppercase "LET'S BUILD SOMETHING."
+- **Title** (700, 20–24px, -0.025em): card, project and list-item titles.
+- **Lead** (400, 18px, line-height 32px): the hero introduction, about 34rem wide.
+- **Body** (400, 16px, 1.75): section introductions and featured summaries. This is the floor for prose.
+- **Body compact** (400, 15px, 28px): card summaries, role descriptions and article summaries.
+- **Meta** (400, 14px): proof lines, footer and small supporting text.
 - **Data** (Geist Mono, 12px minimum, normal tracking): real data only, such as discipline, tools and topics in project and article metadata. Never a label above a heading.
 
 ### Named Rules
@@ -228,7 +256,7 @@ Project screenshots sit in a frame that tilts on hover (perspective 1200px, rota
 - **Do** keep every surface dark: Ink Black (`#0F0A0B`) in the shell, the topic world's deep base elsewhere.
 - **Do** give each new topic its own theme component in `components/themes/` with one lamp color plus semantic accents, while reusing the shared type, radius, spacing and motion rules.
 - **Do** let headings stand alone; put discipline and tools in a mono metadata line below the content, at 12px or larger.
-- **Do** set headlines at weight 900 with -0.04em tracking (never tighter) and line-height ≤ 0.98; emphasize with a solid accent color, never gradient text.
+- **Do** set headlines in Archivo 900 at 88% width with -0.02em tracking (never tighter than -0.04em) and line-height ≤ 0.98; emphasize with a solid accent color, never gradient text.
 - **Do** use the shared card motion: `cubic-bezier(.2,.8,.2,1)`, 500ms, a 7px lift. Wrap decorative animation in a `prefers-reduced-motion` reset, as `app/page.tsx` does.
 - **Do** keep ambient glows and grids `aria-hidden`, `pointer-events: none` and below 12% opacity.
 

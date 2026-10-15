@@ -212,10 +212,8 @@ function NavbarLogo() {
         x="55"
         y="48"
         fill="url(#navbarSignature)"
-        fontFamily="'Segoe Script', 'Brush Script MT', cursive"
-        fontSize="25"
-        fontStyle="italic"
-        fontWeight="600"
+        style={{ fontFamily: "var(--font-signature), cursive" }}
+        fontSize="27"
         letterSpacing="0.8"
       >
         ADEEB

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-15T20:04:20.534Z",
+  "generatedAt": "2026-10-15T20:18:55.157Z",
   "title": "Design System: Adeeb Nizar Portfolio",
   "extensions": {
     "colorMeta": {
@@ -378,7 +378,7 @@
       "refersTo": "button-primary",
       "description": "Main CTA pill with oxblood gradient and underglow.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">View Projects <span class=\"ds-arrow\">→</span></a>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:12px;border-radius:9999px;border:1px solid rgba(201,110,110,.4);background:linear-gradient(to right,#7A1F2B,#9A3441);padding:10px 20px;font:600 14px/1.4 Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;box-shadow:0 12px 35px rgba(122,31,43,.28);transition:all .3s}.ds-btn-primary .ds-arrow{transition:transform .3s}.ds-btn-primary:hover,.ds-btn-primary:focus-visible{transform:translateY(-4px);border-color:rgba(214,180,138,.55);box-shadow:0 16px 45px rgba(201,110,110,.22)}.ds-btn-primary:hover .ds-arrow{transform:translateX(4px)}.ds-btn-primary:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}"
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:12px;border-radius:9999px;border:1px solid rgba(201,110,110,.4);background:linear-gradient(to right,#7A1F2B,#9A3441);padding:10px 20px;font:600 14px/1.4 \"Archivo\",Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;box-shadow:0 12px 35px rgba(122,31,43,.28);transition:all .3s}.ds-btn-primary .ds-arrow{transition:transform .3s}.ds-btn-primary:hover,.ds-btn-primary:focus-visible{transform:translateY(-4px);border-color:rgba(214,180,138,.55);box-shadow:0 16px 45px rgba(201,110,110,.22)}.ds-btn-primary:hover .ds-arrow{transform:translateX(4px)}.ds-btn-primary:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}"
     },
     {
       "name": "Ghost Button",
@@ -386,7 +386,7 @@
       "refersTo": "button-ghost",
       "description": "Secondary pill on a translucent ember panel.",
       "html": "<a class=\"ds-btn-ghost\" href=\"#\">Explore Blog</a>",
-      "css": ".ds-btn-ghost{display:inline-flex;border-radius:9999px;border:1px solid rgba(94,86,92,.6);background:rgba(26,17,20,.75);backdrop-filter:blur(24px);padding:10px 20px;font:600 14px/1.4 Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;transition:all .3s}.ds-btn-ghost:hover,.ds-btn-ghost:focus-visible{transform:translateY(-4px);border-color:rgba(214,180,138,.55);color:#D6B48A}.ds-btn-ghost:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}"
+      "css": ".ds-btn-ghost{display:inline-flex;border-radius:9999px;border:1px solid rgba(94,86,92,.6);background:rgba(26,17,20,.75);backdrop-filter:blur(24px);padding:10px 20px;font:600 14px/1.4 \"Archivo\",Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;transition:all .3s}.ds-btn-ghost:hover,.ds-btn-ghost:focus-visible{transform:translateY(-4px);border-color:rgba(214,180,138,.55);color:#D6B48A}.ds-btn-ghost:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}"
     },
     {
       "name": "Navigation",
@@ -394,7 +394,7 @@
       "refersTo": "nav-link",
       "description": "Sticky blurred bar with gradient-underline links and a pill CTA.",
       "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">Adeeb</span><nav class=\"ds-nav-links\"><a href=\"#\">About</a><a href=\"#\">Projects</a><a href=\"#\">Blog</a><a href=\"#\">Contact</a></nav><a class=\"ds-nav-cta\" href=\"#\">View Work <span>→</span></a></header>",
-      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 24px;background:rgba(15,10,11,.82);backdrop-filter:blur(40px);border-bottom:1px solid rgba(94,86,92,.25)}.ds-nav-logo{font:900 18px Arial,Helvetica,sans-serif;letter-spacing:-.04em;color:#F3EDE6}.ds-nav-links{display:flex;gap:28px}.ds-nav-links a{position:relative;padding:8px 0;font:500 13px Arial,Helvetica,sans-serif;color:#B89AAA;text-decoration:none;transition:color .3s}.ds-nav-links a::after{content:\"\";position:absolute;left:0;bottom:0;height:1px;width:0;background:linear-gradient(to right,#C96E6E,#D6B48A);transition:width .3s}.ds-nav-links a:hover,.ds-nav-links a:focus-visible{color:#F3EDE6}.ds-nav-links a:hover::after,.ds-nav-links a:focus-visible::after{width:100%}.ds-nav-cta{display:inline-flex;gap:8px;border-radius:9999px;border:1px solid rgba(122,31,43,.65);background:rgba(122,31,43,.22);padding:8px 16px;font:600 12px Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;transition:all .3s}.ds-nav-cta span{color:#D6B48A}.ds-nav-cta:hover,.ds-nav-cta:focus-visible{border-color:rgba(201,110,110,.6);background:rgba(122,31,43,.38);box-shadow:0 0 28px rgba(122,31,43,.22)}"
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 24px;background:rgba(15,10,11,.82);backdrop-filter:blur(40px);border-bottom:1px solid rgba(94,86,92,.25)}.ds-nav-logo{font:900 18px \"Archivo\",Arial,Helvetica,sans-serif;letter-spacing:-.04em;color:#F3EDE6}.ds-nav-links{display:flex;gap:28px}.ds-nav-links a{position:relative;padding:8px 0;font:500 13px \"Archivo\",Arial,Helvetica,sans-serif;color:#B89AAA;text-decoration:none;transition:color .3s}.ds-nav-links a::after{content:\"\";position:absolute;left:0;bottom:0;height:1px;width:0;background:linear-gradient(to right,#C96E6E,#D6B48A);transition:width .3s}.ds-nav-links a:hover,.ds-nav-links a:focus-visible{color:#F3EDE6}.ds-nav-links a:hover::after,.ds-nav-links a:focus-visible::after{width:100%}.ds-nav-cta{display:inline-flex;gap:8px;border-radius:9999px;border:1px solid rgba(122,31,43,.65);background:rgba(122,31,43,.22);padding:8px 16px;font:600 12px \"Archivo\",Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;transition:all .3s}.ds-nav-cta span{color:#D6B48A}.ds-nav-cta:hover,.ds-nav-cta:focus-visible{border-color:rgba(201,110,110,.6);background:rgba(122,31,43,.38);box-shadow:0 0 28px rgba(122,31,43,.22)}"
     },
     {
       "name": "Shell Card",
@@ -402,7 +402,7 @@
       "refersTo": "card-feature",
       "description": "Project card: title, summary, then a mono metadata line; lifts and warms on hover.",
       "html": "<a class=\"ds-card\" href=\"#\"><h3 class=\"ds-card-title\">Flow-Based Intrusion Detection Lab</h3><p class=\"ds-card-body\">Captured traffic, extracted flow features and correlated suspicious flows into intrusion alerts.</p><p class=\"ds-meta\"><span>Network security</span><br>PyShark · Wireshark · NTLFlowLyzer</p></a>",
-      "css": ".ds-card{max-width:360px;border-radius:20px;border:1px solid rgba(94,86,92,.35);background:rgba(26,17,20,.82);padding:20px;color:#F3EDE6;transition:transform 500ms cubic-bezier(.2,.8,.2,1),border-color 400ms ease,box-shadow 400ms ease}.ds-card:hover,.ds-card:focus-visible{transform:translateY(-6px);border-color:rgba(201,110,110,.45)}.ds-card:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}.ds-card{display:block;text-decoration:none}.ds-card-title{margin:0;font:700 20px/1.3 Arial,Helvetica,sans-serif;letter-spacing:-.025em}.ds-card-body{margin:8px 0 0;font:400 14px/1.75 Arial,Helvetica,sans-serif;color:#B89AAA}.ds-meta{margin:24px 0 0;padding-top:14px;border-top:1px solid rgba(94,86,92,.35);font:400 12px/1.6 \"Geist Mono\",ui-monospace,monospace;color:#B89AAA}.ds-meta span{color:#D6B48A}"
+      "css": ".ds-card{max-width:360px;border-radius:20px;border:1px solid rgba(94,86,92,.35);background:rgba(26,17,20,.82);padding:20px;color:#F3EDE6;transition:transform 500ms cubic-bezier(.2,.8,.2,1),border-color 400ms ease,box-shadow 400ms ease}.ds-card:hover,.ds-card:focus-visible{transform:translateY(-6px);border-color:rgba(201,110,110,.45)}.ds-card:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}.ds-card{display:block;text-decoration:none}.ds-card-title{margin:0;font:700 20px/1.3 \"Archivo\",Arial,Helvetica,sans-serif;letter-spacing:-.025em}.ds-card-body{margin:8px 0 0;font:400 14px/1.75 \"Archivo\",Arial,Helvetica,sans-serif;color:#B89AAA}.ds-meta{margin:24px 0 0;padding-top:14px;border-top:1px solid rgba(94,86,92,.35);font:400 12px/1.6 \"Geist Mono\",ui-monospace,monospace;color:#B89AAA}.ds-meta span{color:#D6B48A}"
     },
     {
       "name": "Icon Badge",
@@ -418,7 +418,7 @@
       "refersTo": "card-harbor",
       "description": "Security-world card under the signal-cyan lamp.",
       "html": "<article class=\"ds-harbor\"><h3 class=\"ds-harbor-title\">Attack Surface</h3><p class=\"ds-harbor-body\">Threats, vulnerabilities and defensive controls.</p><p class=\"ds-harbor-meta\">Network security</p></article>",
-      "css": ".ds-harbor{max-width:360px;border-radius:18px;border:1px solid #263640;background:#111A22;padding:20px;color:#EAF6F8;transition:border-color .3s,transform .3s}.ds-harbor:hover,.ds-harbor:focus-within{border-color:rgba(52,213,235,.45);transform:translateY(-4px)}.ds-harbor-title{margin:0;font:700 20px/1.3 Arial,Helvetica,sans-serif}.ds-harbor-body{margin:8px 0 0;font:400 14px/1.75 Arial,Helvetica,sans-serif;color:#8FA4AD}.ds-harbor-meta{margin:20px 0 0;font:400 12px \"Geist Mono\",ui-monospace,monospace;color:#34D5EB}"
+      "css": ".ds-harbor{max-width:360px;border-radius:18px;border:1px solid #263640;background:#111A22;padding:20px;color:#EAF6F8;transition:border-color .3s,transform .3s}.ds-harbor:hover,.ds-harbor:focus-within{border-color:rgba(52,213,235,.45);transform:translateY(-4px)}.ds-harbor-title{margin:0;font:700 20px/1.3 \"Archivo\",Arial,Helvetica,sans-serif}.ds-harbor-body{margin:8px 0 0;font:400 14px/1.75 \"Archivo\",Arial,Helvetica,sans-serif;color:#8FA4AD}.ds-harbor-meta{margin:20px 0 0;font:400 12px \"Geist Mono\",ui-monospace,monospace;color:#34D5EB}"
     },
     {
       "name": "Terminal Window",
@@ -469,7 +469,7 @@
       "**Do** keep every surface dark: Ink Black (`#0F0A0B`) in the shell, the topic world's deep base elsewhere.",
       "**Do** give each new topic its own theme component in `components/themes/` with one lamp color plus semantic accents, while reusing the shared type, radius, spacing and motion rules.",
       "**Do** let headings stand alone; put discipline and tools in a mono metadata line below the content, at 12px or larger.",
-      "**Do** set headlines at weight 900 with -0.04em tracking (never tighter) and line-height ≤ 0.98; emphasize with a solid accent color, never gradient text.",
+      "**Do** set headlines in Archivo 900 at 88% width with -0.02em tracking (never tighter than -0.04em) and line-height ≤ 0.98; emphasize with a solid accent color, never gradient text.",
       "**Do** use the shared card motion: `cubic-bezier(.2,.8,.2,1)`, 500ms, a 7px lift. Wrap decorative animation in a `prefers-reduced-motion` reset, as `app/page.tsx` does.",
       "**Do** keep ambient glows and grids `aria-hidden`, `pointer-events: none` and below 12% opacity."
     ],

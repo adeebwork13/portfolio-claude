@@ -169,12 +169,12 @@ export default function Home() {
                 Adeeb Nizar
               </p>
 
-              <h1 className="mt-5 text-balance text-[clamp(2.7rem,5.4vw,5.4rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-[#F3EDE6]">
+              <h1 className="mt-5 text-balance text-[clamp(2.7rem,5.6vw,5.6rem)] font-black uppercase leading-[0.9] tracking-[-0.02em] [font-stretch:88%] text-[#F3EDE6]">
                 I take systems apart to see{" "}
                 <span className="text-[#C96E6E]">how they work.</span>
               </h1>
 
-              <p className="mt-6 max-w-[34rem] text-base leading-7 text-[#B89AAA] sm:text-[17px] sm:leading-8">
+              <p className="mt-6 max-w-[34rem] text-lg leading-8 text-[#B89AAA]">
                 Power grids, circuits, networks. I design power
                 infrastructure at work, and take circuits and networks
                 apart in labs I document step by step.
@@ -263,7 +263,7 @@ export default function Home() {
                   At work
                 </h3>
 
-                <p className="mt-2 text-[15px] leading-7 text-[#B89AAA]">
+                <p className="mt-2 text-base leading-7 text-[#B89AAA]">
                   Solar and powerline design: renewable-energy layouts,
                   utility infrastructure and overhead systems.
                 </p>
@@ -281,7 +281,7 @@ export default function Home() {
                         </span>
                       </p>
 
-                      <p className="mt-2 max-w-[34rem] text-sm leading-7 text-[#B89AAA]">
+                      <p className="mt-2 max-w-[34rem] text-[15px] leading-7 text-[#B89AAA]">
                         {item.description}
                       </p>
                     </li>
@@ -294,7 +294,7 @@ export default function Home() {
                   In the lab
                 </h3>
 
-                <p className="mt-2 text-[15px] leading-7 text-[#B89AAA]">
+                <p className="mt-2 text-base leading-7 text-[#B89AAA]">
                   Every area below links to the work that backs it.
                 </p>
 
@@ -359,7 +359,7 @@ export default function Home() {
                       {item.title}
                     </span>
 
-                    <span className="text-sm leading-7 text-[#B89AAA]">
+                    <span className="text-[15px] leading-7 text-[#B89AAA]">
                       {item.summary}
                     </span>
 
@@ -484,7 +484,7 @@ function SectionHeading({
 }) {
   return (
     <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-      <h2 className="max-w-[840px] text-balance text-[clamp(2rem,4vw,3.6rem)] font-black leading-[0.98] tracking-[-0.04em] text-[#F3EDE6]">
+      <h2 className="max-w-[840px] text-balance text-[clamp(2rem,4vw,3.6rem)] font-black leading-[0.98] tracking-[-0.02em] [font-stretch:88%] text-[#F3EDE6]">
         {title}
       </h2>
 
@@ -523,11 +523,11 @@ function FeaturedWork() {
 
       <div className="flex flex-col justify-between gap-8 p-6 md:p-8 lg:p-10">
         <div>
-          <h3 className="text-[clamp(1.6rem,2.6vw,2.4rem)] font-black leading-[1] tracking-[-0.035em] transition duration-300 group-hover:text-[#D6B48A]">
+          <h3 className="text-[clamp(1.6rem,2.6vw,2.4rem)] font-black leading-[1] tracking-[-0.025em] [font-stretch:88%] transition duration-300 group-hover:text-[#D6B48A]">
             {featuredWork.title}
           </h3>
 
-          <p className="mt-4 max-w-[30rem] text-[15px] leading-7 text-[#B89AAA]">
+          <p className="mt-4 max-w-[30rem] text-base leading-7 text-[#B89AAA]">
             {featuredWork.summary}
           </p>
         </div>
@@ -565,7 +565,7 @@ function WorkCard({
           <Arrow className="mt-1.5 shrink-0 text-[#C96E6E] transition duration-300 group-hover:translate-x-1" />
         </h3>
 
-        <p className="mt-3 max-w-[32rem] text-sm leading-7 text-[#B89AAA]">
+        <p className="mt-3 max-w-[32rem] text-[15px] leading-7 text-[#B89AAA]">
           {summary}
         </p>
       </div>
@@ -704,10 +704,8 @@ function AdeebSignature() {
           x="76"
           y="57"
           fill="url(#adeebSignatureGradient)"
-          fontFamily="'Segoe Script', 'Brush Script MT', cursive"
-          fontSize="29"
-          fontStyle="italic"
-          fontWeight="600"
+          style={{ fontFamily: "var(--font-signature), cursive" }}
+          fontSize="31"
           letterSpacing="1"
         >
           ADEEB
