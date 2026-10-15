@@ -5,24 +5,16 @@ import { useState } from "react";
 
 const navItems = [
   {
-    label: "About",
-    href: "/#about",
-  },
-  {
-    label: "Skills",
-    href: "/#skills",
+    label: "Work",
+    href: "/#projects",
   },
   {
     label: "Experience",
     href: "/#experience",
   },
   {
-    label: "Projects",
-    href: "/#projects",
-  },
-  {
-    label: "Blog",
-    href: "/blog",
+    label: "Writing",
+    href: "/#blog",
   },
   {
     label: "Contact",
@@ -68,14 +60,14 @@ export default function Navbar() {
 
         <div className="hidden lg:block">
           <a
-            href="/#projects"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-full border border-[#7A1F2B]/65 bg-[#7A1F2B]/22 px-4 py-2 text-xs font-semibold text-[#F3EDE6] transition duration-300 hover:border-[#C96E6E]/60 hover:bg-[#7A1F2B]/38 hover:shadow-[0_0_28px_rgba(122,31,43,0.22)]"
           >
-            View Work
+            Resume
 
-            <span className="text-[#D6B48A] transition duration-300 group-hover:translate-x-1">
-              →
-            </span>
+            <span className="sr-only"> (PDF, opens in a new tab)</span>
           </a>
         </div>
 
@@ -119,6 +111,7 @@ export default function Navbar() {
       {/* MOBILE MENU */}
 
       <div
+        inert={!open}
         className={`overflow-hidden border-t border-[#5E565C]/25 bg-[#0F0A0B]/96 backdrop-blur-2xl transition-all duration-400 lg:hidden ${
           open
             ? "max-h-[500px] opacity-100"
@@ -140,6 +133,18 @@ export default function Navbar() {
               </span>
             </Link>
           ))}
+
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="group flex items-center justify-between py-4 text-sm font-semibold text-[#D6B48A] transition duration-300 hover:pl-2 hover:text-[#F3EDE6]"
+          >
+            Resume
+
+            <span className="sr-only"> (PDF, opens in a new tab)</span>
+          </a>
         </nav>
       </div>
     </header>

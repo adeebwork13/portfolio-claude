@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-15T20:04:20.534Z",
+  "title": "Design System: Adeeb Nizar Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "oxblood": {
+        "role": "primary",
+        "displayName": "Oxblood",
+        "canonical": "#7A1F2B",
+        "tonalRamp": [
+          "#280000",
+          "#4E000F",
+          "#761C28",
+          "#974248",
+          "#B8686B",
+          "#D88D8F",
+          "#F9B5B6",
+          "#FFDDDD"
+        ]
+      },
+      "faded-rose": {
+        "role": "primary",
+        "displayName": "Faded Rose",
+        "canonical": "#C96E6E",
+        "tonalRamp": [
+          "#210001",
+          "#441013",
+          "#6A2B2C",
+          "#924748",
+          "#BC6565",
+          "#E18988",
+          "#FFB0AE",
+          "#FFD8D6"
+        ]
+      },
+      "brass": {
+        "role": "secondary",
+        "displayName": "Brass",
+        "canonical": "#D6B48A",
+        "tonalRamp": [
+          "#140800",
+          "#31220E",
+          "#513E26",
+          "#745D40",
+          "#987D5B",
+          "#BE9F78",
+          "#E4C39A",
+          "#FFE9C3"
+        ]
+      },
+      "bone": {
+        "role": "neutral",
+        "displayName": "Bone",
+        "canonical": "#F3EDE6",
+        "tonalRamp": [
+          "#0C0B09",
+          "#272522",
+          "#44413E",
+          "#64615D",
+          "#85827D",
+          "#A9A49F",
+          "#CDC8C2",
+          "#F3EDE6"
+        ]
+      },
+      "dusk-mauve": {
+        "role": "neutral",
+        "displayName": "Dusk Mauve",
+        "canonical": "#B89AAA",
+        "tonalRamp": [
+          "#12070D",
+          "#2F2028",
+          "#4E3C46",
+          "#705A66",
+          "#947A88",
+          "#B99BAB",
+          "#DCC0CF",
+          "#FFE6F4"
+        ]
+      },
+      "ink-black": {
+        "role": "neutral",
+        "displayName": "Ink Black",
+        "canonical": "#0F0A0B",
+        "tonalRamp": [
+          "#0F0A0B",
+          "#292324",
+          "#464041",
+          "#656061",
+          "#868182",
+          "#A8A4A4",
+          "#CCC8C9",
+          "#F0EDEE"
+        ]
+      },
+      "ember-panel": {
+        "role": "neutral",
+        "displayName": "Ember Panel",
+        "canonical": "#1A1114",
+        "tonalRamp": [
+          "#11080B",
+          "#2B2225",
+          "#483F42",
+          "#675E61",
+          "#888082",
+          "#AAA3A5",
+          "#CEC7C9",
+          "#F2EDEE"
+        ]
+      },
+      "smoke-line": {
+        "role": "neutral",
+        "displayName": "Smoke Line",
+        "canonical": "#5E565C",
+        "tonalRamp": [
+          "#0E0A0D",
+          "#292327",
+          "#473F45",
+          "#665E64",
+          "#878085",
+          "#AAA2A8",
+          "#CDC7CC",
+          "#F2ECF1"
+        ]
+      },
+      "signal-cyan": {
+        "role": "tertiary",
+        "displayName": "Signal Cyan",
+        "canonical": "#34D5EB",
+        "tonalRamp": [
+          "#001119",
+          "#002E38",
+          "#004D5A",
+          "#006F7F",
+          "#0093A5",
+          "#1CB9CD",
+          "#4BDFF5",
+          "#89FFFF"
+        ]
+      },
+      "signal-sky": {
+        "role": "tertiary",
+        "displayName": "Signal Sky",
+        "canonical": "#38BDF8",
+        "tonalRamp": [
+          "#000D24",
+          "#002A47",
+          "#00496D",
+          "#006A95",
+          "#0B8EBF",
+          "#30B2EB",
+          "#65D7FF",
+          "#99FDFF"
+        ]
+      },
+      "harbor-deep": {
+        "role": "neutral",
+        "displayName": "Harbor Deep",
+        "canonical": "#06131C",
+        "tonalRamp": [
+          "#020C15",
+          "#1A2730",
+          "#37444D",
+          "#57636C",
+          "#79848C",
+          "#9DA7AE",
+          "#C2CAD1",
+          "#E9F0F5"
+        ]
+      },
+      "harbor-panel": {
+        "role": "neutral",
+        "displayName": "Harbor Panel",
+        "canonical": "#111A22",
+        "tonalRamp": [
+          "#050C13",
+          "#1D262E",
+          "#3A434B",
+          "#5A626A",
+          "#7C838A",
+          "#9FA6AC",
+          "#C4CAD0",
+          "#EAEFF4"
+        ]
+      },
+      "harbor-line": {
+        "role": "neutral",
+        "displayName": "Harbor Line",
+        "canonical": "#263640",
+        "tonalRamp": [
+          "#030D14",
+          "#182730",
+          "#35444E",
+          "#55646D",
+          "#77858E",
+          "#9AA7AF",
+          "#C0CBD2",
+          "#E6F0F7"
+        ]
+      },
+      "harbor-text": {
+        "role": "neutral",
+        "displayName": "Harbor Text",
+        "canonical": "#EAF6F8",
+        "tonalRamp": [
+          "#090C0C",
+          "#222626",
+          "#3E4344",
+          "#5C6364",
+          "#7C8485",
+          "#9EA7A8",
+          "#C1CBCD",
+          "#E5F1F3"
+        ]
+      },
+      "harbor-muted": {
+        "role": "neutral",
+        "displayName": "Harbor Muted",
+        "canonical": "#8FA4AD",
+        "tonalRamp": [
+          "#050D10",
+          "#1C272C",
+          "#37444A",
+          "#54646B",
+          "#73868E",
+          "#94A9B2",
+          "#B9CDD5",
+          "#E0F2FA"
+        ]
+      },
+      "lamp-amber": {
+        "role": "tertiary",
+        "displayName": "Lamp Amber",
+        "canonical": "#F4C46B",
+        "tonalRamp": [
+          "#160700",
+          "#352100",
+          "#563D04",
+          "#7A5C1E",
+          "#A07C37",
+          "#C79E4F",
+          "#F1C169",
+          "#FFE797"
+        ]
+      },
+      "alert-red": {
+        "role": "tertiary",
+        "displayName": "Alert Red",
+        "canonical": "#F87171",
+        "tonalRamp": [
+          "#260000",
+          "#4D000A",
+          "#751D22",
+          "#A1393C",
+          "#CE5657",
+          "#FB7575",
+          "#FF9F9C",
+          "#FFCAC5"
+        ]
+      },
+      "pass-green": {
+        "role": "tertiary",
+        "displayName": "Pass Green",
+        "canonical": "#4ADE80",
+        "tonalRamp": [
+          "#001300",
+          "#003205",
+          "#00531D",
+          "#007636",
+          "#189B51",
+          "#37C26C",
+          "#5EE98D",
+          "#95FFB8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline; uppercase, 900 weight, -0.04em, closing phrase in solid Faded Rose."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, often one word per line."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and project titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and prose at about a 620px measure."
+      },
+      "label": {
+        "displayName": "Data",
+        "purpose": "Mono 12px+ for real data only: discipline, tools, topics. Never above a heading."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 20px 55px rgba(0,0,0,0.16)",
+        "purpose": "Default lift for shell cards."
+      },
+      {
+        "name": "card-hover-glow",
+        "value": "0 28px 75px rgba(122,31,43,0.14)",
+        "purpose": "Oxblood-tinted hover shadow on cards."
+      },
+      {
+        "name": "panel",
+        "value": "0 35px 100px rgba(0,0,0,0.25)",
+        "purpose": "Large composite panels such as contact."
+      },
+      {
+        "name": "button-primary",
+        "value": "0 12px 35px rgba(122,31,43,0.28)",
+        "purpose": "Primary CTA underglow."
+      },
+      {
+        "name": "button-primary-hover",
+        "value": "0 16px 45px rgba(201,110,110,0.22)",
+        "purpose": "Primary CTA hover glow."
+      },
+      {
+        "name": "indicator",
+        "value": "0 0 10px rgba(201,110,110,0.7)",
+        "purpose": "Small status dots."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-lift",
+        "value": "cubic-bezier(.2,.8,.2,1)",
+        "purpose": "Card lift and preview tilt."
+      },
+      {
+        "name": "duration-card",
+        "value": "500ms",
+        "purpose": "Card hover lift (translateY -7px)."
+      },
+      {
+        "name": "duration-preview",
+        "value": "650ms",
+        "purpose": "Project preview tilt."
+      },
+      {
+        "name": "duration-control",
+        "value": "300ms",
+        "purpose": "Buttons, nav links and arrows."
+      },
+      {
+        "name": "sweep",
+        "value": "1.05s ease forwards",
+        "purpose": "One-shot sheen across project previews on hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA pill with oxblood gradient and underglow.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">View Projects <span class=\"ds-arrow\">→</span></a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:12px;border-radius:9999px;border:1px solid rgba(201,110,110,.4);background:linear-gradient(to right,#7A1F2B,#9A3441);padding:10px 20px;font:600 14px/1.4 Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;box-shadow:0 12px 35px rgba(122,31,43,.28);transition:all .3s}.ds-btn-primary .ds-arrow{transition:transform .3s}.ds-btn-primary:hover,.ds-btn-primary:focus-visible{transform:translateY(-4px);border-color:rgba(214,180,138,.55);box-shadow:0 16px 45px rgba(201,110,110,.22)}.ds-btn-primary:hover .ds-arrow{transform:translateX(4px)}.ds-btn-primary:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary pill on a translucent ember panel.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Explore Blog</a>",
+      "css": ".ds-btn-ghost{display:inline-flex;border-radius:9999px;border:1px solid rgba(94,86,92,.6);background:rgba(26,17,20,.75);backdrop-filter:blur(24px);padding:10px 20px;font:600 14px/1.4 Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;transition:all .3s}.ds-btn-ghost:hover,.ds-btn-ghost:focus-visible{transform:translateY(-4px);border-color:rgba(214,180,138,.55);color:#D6B48A}.ds-btn-ghost:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky blurred bar with gradient-underline links and a pill CTA.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">Adeeb</span><nav class=\"ds-nav-links\"><a href=\"#\">About</a><a href=\"#\">Projects</a><a href=\"#\">Blog</a><a href=\"#\">Contact</a></nav><a class=\"ds-nav-cta\" href=\"#\">View Work <span>→</span></a></header>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 24px;background:rgba(15,10,11,.82);backdrop-filter:blur(40px);border-bottom:1px solid rgba(94,86,92,.25)}.ds-nav-logo{font:900 18px Arial,Helvetica,sans-serif;letter-spacing:-.04em;color:#F3EDE6}.ds-nav-links{display:flex;gap:28px}.ds-nav-links a{position:relative;padding:8px 0;font:500 13px Arial,Helvetica,sans-serif;color:#B89AAA;text-decoration:none;transition:color .3s}.ds-nav-links a::after{content:\"\";position:absolute;left:0;bottom:0;height:1px;width:0;background:linear-gradient(to right,#C96E6E,#D6B48A);transition:width .3s}.ds-nav-links a:hover,.ds-nav-links a:focus-visible{color:#F3EDE6}.ds-nav-links a:hover::after,.ds-nav-links a:focus-visible::after{width:100%}.ds-nav-cta{display:inline-flex;gap:8px;border-radius:9999px;border:1px solid rgba(122,31,43,.65);background:rgba(122,31,43,.22);padding:8px 16px;font:600 12px Arial,Helvetica,sans-serif;color:#F3EDE6;text-decoration:none;transition:all .3s}.ds-nav-cta span{color:#D6B48A}.ds-nav-cta:hover,.ds-nav-cta:focus-visible{border-color:rgba(201,110,110,.6);background:rgba(122,31,43,.38);box-shadow:0 0 28px rgba(122,31,43,.22)}"
+    },
+    {
+      "name": "Shell Card",
+      "kind": "card",
+      "refersTo": "card-feature",
+      "description": "Project card: title, summary, then a mono metadata line; lifts and warms on hover.",
+      "html": "<a class=\"ds-card\" href=\"#\"><h3 class=\"ds-card-title\">Flow-Based Intrusion Detection Lab</h3><p class=\"ds-card-body\">Captured traffic, extracted flow features and correlated suspicious flows into intrusion alerts.</p><p class=\"ds-meta\"><span>Network security</span><br>PyShark · Wireshark · NTLFlowLyzer</p></a>",
+      "css": ".ds-card{max-width:360px;border-radius:20px;border:1px solid rgba(94,86,92,.35);background:rgba(26,17,20,.82);padding:20px;color:#F3EDE6;transition:transform 500ms cubic-bezier(.2,.8,.2,1),border-color 400ms ease,box-shadow 400ms ease}.ds-card:hover,.ds-card:focus-visible{transform:translateY(-6px);border-color:rgba(201,110,110,.45)}.ds-card:focus-visible{outline:2px solid #D6B48A;outline-offset:3px}.ds-card{display:block;text-decoration:none}.ds-card-title{margin:0;font:700 20px/1.3 Arial,Helvetica,sans-serif;letter-spacing:-.025em}.ds-card-body{margin:8px 0 0;font:400 14px/1.75 Arial,Helvetica,sans-serif;color:#B89AAA}.ds-meta{margin:24px 0 0;padding-top:14px;border-top:1px solid rgba(94,86,92,.35);font:400 12px/1.6 \"Geist Mono\",ui-monospace,monospace;color:#B89AAA}.ds-meta span{color:#D6B48A}"
+    },
+    {
+      "name": "Icon Badge",
+      "kind": "chip",
+      "refersTo": "icon-badge",
+      "description": "Tinted rounded-square icon holder in a tone color.",
+      "html": "<div class=\"ds-badge\"><svg viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z\"/></svg></div>",
+      "css": ".ds-badge{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:13px;border:1px solid rgba(214,180,138,.25);background:rgba(214,180,138,.10);color:#D6B48A;transition:transform .4s}.ds-badge:hover{transform:scale(1.1)}"
+    },
+    {
+      "name": "Harbor Card",
+      "kind": "card",
+      "refersTo": "card-harbor",
+      "description": "Security-world card under the signal-cyan lamp.",
+      "html": "<article class=\"ds-harbor\"><h3 class=\"ds-harbor-title\">Attack Surface</h3><p class=\"ds-harbor-body\">Threats, vulnerabilities and defensive controls.</p><p class=\"ds-harbor-meta\">Network security</p></article>",
+      "css": ".ds-harbor{max-width:360px;border-radius:18px;border:1px solid #263640;background:#111A22;padding:20px;color:#EAF6F8;transition:border-color .3s,transform .3s}.ds-harbor:hover,.ds-harbor:focus-within{border-color:rgba(52,213,235,.45);transform:translateY(-4px)}.ds-harbor-title{margin:0;font:700 20px/1.3 Arial,Helvetica,sans-serif}.ds-harbor-body{margin:8px 0 0;font:400 14px/1.75 Arial,Helvetica,sans-serif;color:#8FA4AD}.ds-harbor-meta{margin:20px 0 0;font:400 12px \"Geist Mono\",ui-monospace,monospace;color:#34D5EB}"
+    },
+    {
+      "name": "Terminal Window",
+      "kind": "custom",
+      "description": "Lab session replay; the main proof device for projects.",
+      "html": "<div class=\"ds-term\"><div class=\"ds-term-bar\"><i></i><i></i><i></i><span>kali@lab: ~</span></div><pre class=\"ds-term-body\"><b>$</b> nmap -sV 192.168.56.101\n<em>22/tcp open  ssh   OpenSSH 4.7p1</em>\n<em>80/tcp open  http  Apache 2.2.8</em></pre></div>",
+      "css": ".ds-term{max-width:440px;border-radius:18px;border:1px solid #263640;background:#06131C;overflow:hidden}.ds-term-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid #263640;font:400 11px \"Geist Mono\",ui-monospace,monospace;color:#8FA4AD}.ds-term-bar i{width:9px;height:9px;border-radius:50%;background:#263640}.ds-term-bar span{margin-left:8px}.ds-term-body{margin:0;padding:16px;font:400 13px/1.7 \"Geist Mono\",ui-monospace,monospace;color:#EAF6F8;white-space:pre-wrap}.ds-term-body b{color:#34D5EB}.ds-term-body em{font-style:normal;color:#4ADE80}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lit Workbench",
+    "overview": "The site is a dark workshop after hours. The hall you walk in through (the homepage and the navbar) is lit warm: oxblood, brass and bone on near-black, with a signature and a portrait to say whose bench this is. Each project and article is a separate station on that bench, lit by its own instrument light: signal cyan over the network and security labs, teal over electronics, violet over AI and encryption, emerald on zinc for the transistor explainer. The lamps change; the bench does not. Type, shape, spacing and motion stay the same across every station, so the topic worlds read as one practice, not as a scrapbook.\n\nDensity is generous at the top and specific further in. Display type is set huge, heavy and tight, then gives way to small monospace labels and calm body text. Depth comes from soft ambient glows, blurred color fields and translucent panels rather than hard edges. Motion is slow and physical: cards lift, previews tilt slightly, a sheen sweeps once. All of it switches off under reduced motion.",
+    "keyCharacteristics": [
+      "A dark base everywhere; no light mode.",
+      "One warm brand shell (oxblood/brass/bone) plus one cool or saturated instrument palette per topic.",
+      "Heavy display headlines that stand alone, with mono reserved for real data.",
+      "Soft, rounded containers (18–28px) and pill-shaped controls.",
+      "Ambient blurred glows and faint blueprint grids as atmosphere, never as content."
+    ],
+    "rules": [
+      {
+        "name": "The One Lamp Rule",
+        "body": "A page is lit by either the brand shell or one topic world. Brass and oxblood never share a surface with signal cyan or violet; the navbar is the only shell element that crosses into topic pages.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lamp Not Floodlight Rule",
+        "body": "Accents mark labels, edges, glows and state. Large fields of saturated color appear only as blurred ambient light at 2–12% opacity, never as solid blocks behind text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Heading Speaks Alone Rule",
+        "body": "No eyebrow or kicker above headings. A heading carries its own weight; mono is reserved for data (tools, disciplines, topics), set below the content it describes. (The contact panel's \"Connect\" label is a grandfathered exception.)",
+        "section": "typography"
+      },
+      {
+        "name": "The Heavy Or Quiet Rule",
+        "body": "Headlines are 900-weight and tightly tracked; everything else steps all the way down to regular body or small mono. Don't fill the gap with mid-weight display type.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glow Not Edge Rule",
+        "body": "Elevation is signalled by diffuse, tinted light, never by crisp drop shadows or heavy outlines.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep every surface dark: Ink Black (`#0F0A0B`) in the shell, the topic world's deep base elsewhere.",
+      "**Do** give each new topic its own theme component in `components/themes/` with one lamp color plus semantic accents, while reusing the shared type, radius, spacing and motion rules.",
+      "**Do** let headings stand alone; put discipline and tools in a mono metadata line below the content, at 12px or larger.",
+      "**Do** set headlines at weight 900 with -0.04em tracking (never tighter) and line-height ≤ 0.98; emphasize with a solid accent color, never gradient text.",
+      "**Do** use the shared card motion: `cubic-bezier(.2,.8,.2,1)`, 500ms, a 7px lift. Wrap decorative animation in a `prefers-reduced-motion` reset, as `app/page.tsx` does.",
+      "**Do** keep ambient glows and grids `aria-hidden`, `pointer-events: none` and below 12% opacity."
+    ],
+    "donts": [
+      "**Don't** use gradient text or put eyebrow labels above headings.",
+      "**Don't** set functional text below 12px.",
+      "**Don't** mix shell colors (Oxblood, Brass) with a topic lamp (cyan, violet, teal) on the same page body. (The One Lamp Rule.)",
+      "**Don't** put a solid saturated fill behind body text; saturated color appears as edges, labels, glows and states only.",
+      "**Don't** use mid-weight (500–700) display-size headlines.",
+      "**Don't** use hard, dark drop shadows or thick borders for elevation; borders stay 1px hairlines.",
+      "**Don't** introduce square-cornered containers or non-pill buttons.",
+      "**Don't** use a light theme or white page backgrounds."
+    ]
+  }
+}
