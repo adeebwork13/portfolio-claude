@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Navbar from "@/components/Navbar";
+import HeroStage from "@/components/hero/HeroStage";
 
 /* =========================================================
    DATA
@@ -162,12 +163,28 @@ export default function Home() {
             HERO
         =================================================== */}
 
-        <section className="relative z-10 border-b border-[#5E565C]/30">
+        <section
+          data-hero
+          className="relative z-10 border-b border-[#5E565C]/30"
+        >
           <div className="mx-auto grid max-w-[1240px] items-center gap-6 px-5 pb-10 pt-10 sm:px-6 lg:min-h-[600px] lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-12 lg:pt-12">
             <div className="relative z-20 max-w-[700px]">
-              <p className="text-lg font-bold tracking-[-0.02em] text-[#F3EDE6] sm:text-xl">
-                Adeeb Nizar
-              </p>
+              <div className="flex items-center gap-3">
+                {/* decorative: the name sits beside it */}
+                <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-[#5E565C]/35 bg-[#1A1114]">
+                  <Image
+                    src="/adeeb-cutout.png"
+                    alt=""
+                    fill
+                    sizes="88px"
+                    className="origin-[50%_28%] scale-[1.9] object-cover object-top"
+                  />
+                </span>
+
+                <p className="text-lg font-bold tracking-[-0.02em] text-[#F3EDE6] sm:text-xl">
+                  Adeeb Nizar
+                </p>
+              </div>
 
               <h1 className="mt-5 text-balance text-[clamp(2.7rem,5.6vw,5.6rem)] font-black uppercase leading-[0.9] tracking-[-0.02em] [font-stretch:88%] text-[#F3EDE6]">
                 I take systems apart to see{" "}
@@ -201,7 +218,7 @@ export default function Home() {
               </div>
             </div>
 
-            <HeroPortrait />
+            <HeroStage />
           </div>
         </section>
 
