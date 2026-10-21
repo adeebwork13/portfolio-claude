@@ -321,7 +321,7 @@ The homepage becomes numbered chapters, mapped to the content that already exist
   - Pointer parallax of at most 6°.
   - The object recedes and dims as Chapter 01 arrives. It does not follow the visitor down the page.
 - **Only one.** No other WebGL on the page. Chapter visuals use the real screenshots and typography.
-- **Asset:** built procedurally in code with React Three Fiber. There is no external model file, so the model budget is met by construction; geometry stays simple, with a low polygon count and no textures beyond the materials above.
+- **Asset:** built procedurally in code with React Three Fiber. There is no external model file, so there is no model file to budget; geometry stays simple, with a low polygon count and no textures beyond the materials above.
 - **Poster:** a Playwright screenshot of the rendered scene, in its fully exploded state with the core lit, at the canvas's display size (with a 2× version). It is the reduced-motion and fallback image described below. Regenerate it whenever the scene changes.
 
 ### Scroll-driven motion
