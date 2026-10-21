@@ -415,7 +415,7 @@ export default function Home() {
 
                 <div className="mt-10 grid gap-3">
                   <ContactButton
-                    href="https://github.com/YOUR-GITHUB-USERNAME"
+                    href="https://github.com/adeebwork13"
                     title="GitHub"
                     subtitle="Projects & Code"
                   />
