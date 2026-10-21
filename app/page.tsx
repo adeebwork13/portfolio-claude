@@ -125,16 +125,6 @@ export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-[#0F0A0B] text-[#F3EDE6]">
       <style>{`
-        @keyframes floatPortrait {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-8px); }
-        }
-
-        @keyframes atmosphericDrift {
-          0%, 100% { transform: translate3d(0, 0, 0); }
-          50% { transform: translate3d(16px, -12px, 0); }
-        }
-
         .home a:focus-visible {
           outline: 2px solid #D6B48A;
           outline-offset: 3px;
@@ -143,12 +133,6 @@ export default function Home() {
         .home ::selection {
           background: rgba(201, 110, 110, 0.38);
           color: #F3EDE6;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .motion-element {
-            animation: none !important;
-          }
         }
       `}</style>
 
@@ -276,14 +260,28 @@ export default function Home() {
 
             <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-14">
               <div>
-                <h3 className="text-xl font-bold tracking-[-0.02em]">
-                  At work
-                </h3>
+                <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+                  <div className="relative h-[150px] w-[120px] shrink-0 overflow-hidden rounded-[20px] border border-[#D6B48A]/20 bg-[#1A1114]/82">
+                    <Image
+                      src="/adeeb-cutout.png"
+                      alt="Portrait of Adeeb Nizar"
+                      fill
+                      sizes="120px"
+                      className="object-cover object-top opacity-[0.76] brightness-[0.72] contrast-[1.08] saturate-[0.72]"
+                    />
+                  </div>
 
-                <p className="mt-2 text-base leading-7 text-[#B89AAA]">
-                  Solar and powerline design: renewable-energy layouts,
-                  utility infrastructure and overhead systems.
-                </p>
+                  <div>
+                    <h3 className="text-xl font-bold tracking-[-0.02em]">
+                      At work
+                    </h3>
+
+                    <p className="mt-2 text-base leading-7 text-[#B89AAA]">
+                      Solar and powerline design: renewable-energy layouts,
+                      utility infrastructure and overhead systems.
+                    </p>
+                  </div>
+                </div>
 
                 <ul className="mt-6 border-t border-[#5E565C]/35">
                   {roles.map((item) => (
@@ -614,61 +612,6 @@ function WorkMeta({
         <dd className="text-[#B89AAA]">{tools.join(" · ")}</dd>
       </div>
     </dl>
-  );
-}
-
-/* =========================================================
-   HERO PORTRAIT
-========================================================= */
-
-function HeroPortrait() {
-  return (
-    <div className="relative mx-auto min-h-[320px] w-full max-w-[540px] lg:min-h-[520px]">
-      {/* atmospheric glow */}
-
-      <div
-        className="motion-element absolute right-[5%] top-[10%] h-[55%] w-[60%] rounded-full bg-[#7A1F2B]/25 blur-[110px]"
-        style={{
-          animation: "atmosphericDrift 10s ease-in-out infinite",
-        }}
-      />
-
-      <div
-        className="motion-element absolute bottom-[8%] right-[10%] h-[45%] w-[50%] rounded-full bg-[#D6B48A]/10 blur-[100px]"
-        style={{
-          animation:
-            "atmosphericDrift 13s ease-in-out infinite reverse",
-        }}
-      />
-
-      {/* editorial frame */}
-
-      <div className="absolute right-[3%] top-[8%] h-[84%] w-[80%] rounded-[34px] border border-[#5E565C]/35 bg-[#1A1114]/35" />
-
-      <div className="absolute right-[9%] top-[14%] h-[72%] w-[68%] rounded-[28px] border border-[#D6B48A]/12" />
-
-      {/* portrait */}
-
-      <div
-        className="motion-element absolute inset-x-0 bottom-0 z-10 h-[96%]"
-        style={{
-          animation: "floatPortrait 7s ease-in-out infinite",
-        }}
-      >
-        <Image
-          src="/adeeb-cutout.png"
-          alt="Portrait of Adeeb Nizar"
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 46vw"
-          className="object-contain object-bottom opacity-[0.76] brightness-[0.72] contrast-[1.08] saturate-[0.72]"
-        />
-
-        {/* dark blend along lower image */}
-
-        <div className="absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-[#0F0A0B] via-[#0F0A0B]/45 to-transparent" />
-      </div>
-    </div>
   );
 }
 
