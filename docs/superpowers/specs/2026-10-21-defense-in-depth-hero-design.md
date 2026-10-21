@@ -22,7 +22,8 @@ In scope:
 - The poster image and the Playwright checks.
 
 Out of scope (separate work):
-- Chapter numerals, heading wipes, the growing featured screenshot, drawn-in hairlines.
+- Chapter numerals, heading wipes, drawn-in hairlines.
+- (The "growing featured screenshot" is replaced by the terminal replay; see the addendum.)
 - Any change to topic pages.
 
 ## Decisions made during brainstorming
@@ -126,3 +127,16 @@ Because the frame counter must work in the tested build, the Playwright run uses
 7. Performance check with Playwright. Check: all rows in "Testing" pass, or a failure is reported with numbers.
 
 Step 3 is new (from the portrait decision). Playwright installation moves into step 6 because the poster is a Playwright screenshot.
+
+## Addendum (2026-10-21): featured terminal replay
+
+Added after Task 2, at the user's request. It is implemented as plan Task 8.
+
+- **What:** the featured Reconnaissance Lab card (Chapter 01) stops showing `portscan.png`. In its place, a compact terminal plays once when the card scrolls into view. It types `sudo nmap -p 1-1000 192.168.148.129`, then prints its 12 output lines.
+- **Data:** read from `app/projects/reconnaissance-lab/terminalProfiles.ts` (profile `kali`, that exact command), not copied.
+- **Look:** a terminal window that matches the card. Rounded, dark Ember panel, 1px Smoke Line hairline, no white border. It uses the shell palette only (One Lamp Rule): prompt `kali@kali:~$` in Brass, command in Bone, output in Dusk Mauve. It reuses the data, not `InteractiveTerminal`, whose violet and cyan belong to the lab page.
+- **Readability:** Geist Mono at 12px or larger at every width. From `lg` up the terminal fills the existing `aspect-[1000/618]` media area; below `lg` it sets its own height so all 13 lines show, with no internal scrollbar.
+- **Timing:** starts when the card is about 50% visible; plays once only. Command: about 35ms per character. Output: about 60ms per line. Total about 2.5s, then a resting cursor.
+- **Reduced motion:** the final output shows immediately, with no typing.
+- **Accessibility:** the whole card is a link, so the animated terminal is `aria-hidden`. A visually hidden sentence replaces the old alt text: "Terminal replay of an Nmap port scan from Kali Linux against the lab target, showing 12 open ports."
+- **DESIGN.md:** the scroll pattern "The featured project screenshot grows from an inset frame toward full width." becomes "The featured project's terminal replays its Nmap scan once as it enters, in the shell palette." The final state is shown under reduced motion.

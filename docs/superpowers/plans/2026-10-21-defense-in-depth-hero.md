@@ -315,3 +315,69 @@ Playwright is installed here (not in Task 6) because Review Focus 1–4 need bro
   - If the scene changed during Task 7, re-run `npm run poster`.
 - [ ] **Step 6: Browser check (user).** Read the logged numbers (chunk KB, desktop fps, throttled mobile fps). Try the page on a real phone if one is available.
 - [ ] **Step 7:** Commit `tests/hero-perf.spec.ts`, plus `next.config.ts`, `HeroStage.tsx` and `DESIGN.md` if Step 3 changed them, with the message "Add hero performance checks".
+
+### Task 8: Featured terminal replay (added 2026-10-21, after Task 2)
+
+Spec: see "Addendum: featured terminal replay". This runs after Task 7, because its e2e test reuses the Playwright setup from Task 5.
+
+**Files:**
+- Create `components/home/replay.ts`, `components/home/replay.test.ts`, `components/home/TerminalReplay.tsx`, `tests/terminal-replay.spec.ts`.
+- Modify `app/page.tsx` (`FeaturedWork`, `featuredWork` data), `package.json` (`test:unit`), `DESIGN.md` (the scroll pattern line).
+
+**Interfaces:**
+- Produces, in `replay.ts` (no imports):
+  - `REPLAY = { startDelayMs: 200, charMs: 35, enterMs: 250, lineMs: 60 }`.
+  - `type ReplayFrame = { typedChars: number; linesShown: number; done: boolean }`.
+  - `replayFrame(elapsedMs: number, commandLength: number, lineCount: number): ReplayFrame`:
+    - `typedChars = clamp(floor((elapsed - startDelayMs) / charMs), 0, commandLength)`.
+    - Let `typedAt = startDelayMs + commandLength * charMs`. Then `linesShown = clamp(floor((elapsed - typedAt - enterMs) / lineMs) + 1, 0, lineCount)`.
+    - `done = linesShown === lineCount && typedChars === commandLength`.
+- Produces: `TerminalReplay` (default export, `"use client"`), with props `{ prompt: string; command: string; output: string; description: string }`.
+
+- [ ] **Step 1:** Change `test:unit` to `node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test "components/hero/*.test.ts" "components/home/*.test.ts"`.
+- [ ] **Step 2: Failing tests** in `replay.test.ts`, using a 36-character command and 12 lines:
+  - `replayFrame(0, 36, 12)` deep-equals `{ typedChars: 0, linesShown: 0, done: false }`.
+  - `replayFrame(-50, 36, 12).typedChars === 0`.
+  - `replayFrame(200 + 35 * 5, 36, 12).typedChars === 5`.
+  - At `typedAt + 249` (where `typedAt = 200 + 36 * 35`), `linesShown === 0`; at `typedAt + 250`, `linesShown === 1`.
+  - `replayFrame(1e6, 36, 12)` deep-equals `{ typedChars: 36, linesShown: 12, done: true }`.
+  - The total time to `done` is under 2600ms: `replayFrame(2600, 36, 12).done === true`.
+- [ ] **Step 3:** Run `npm run test:unit`. Expected: FAIL (module missing).
+- [ ] **Step 4:** Implement `replay.ts`.
+- [ ] **Step 5:** Run `npm run test:unit`. Expected: all pass.
+- [ ] **Step 6: `TerminalReplay`.**
+  - **Server render:** the final state (full command and all lines), so content is always in the DOM in its final form and no-JS visitors see the result.
+  - **After hydration:**
+    - Reduced motion (`matchMedia("(prefers-reduced-motion: reduce)")`): keep the final state and do nothing else.
+    - Otherwise: reset to frame 0. Start a `requestAnimationFrame` loop driven by `replayFrame` when an IntersectionObserver (`threshold: 0.5`) first fires, then disconnect it, so the replay runs only once. Stop the loop at `done`.
+  - **Markup:**
+    - Root: `<div aria-hidden="true" data-terminal-replay>`.
+    - Window chrome: a slim top bar with three 8px dots in Smoke Line (not traffic-light colours) and the title `kali@kali` in Dusk Mauve.
+    - Body: `<pre>` in Geist Mono, `text-[12px] leading-[1.6]`, `sm:text-[13px]`.
+    - Prompt Brass `#D6B48A`, command Bone `#F3EDE6`, output Dusk Mauve `#B89AAA`, cursor a Faded Rose `#C96E6E` block.
+    - Panel `#0F0A0B`/90 inside the card, with no extra border of its own (the card's existing `border-r`/`border-b` hairline divides it).
+  - **Sibling:** `<span className="sr-only">{description}</span>`.
+- [ ] **Step 7: `app/page.tsx`.**
+  - Remove `image` from `featuredWork`.
+  - Import `terminals` from `@/app/projects/reconnaissance-lab/terminalProfiles` and select `terminals.find(t => t.id === "kali")`, then the command `"sudo nmap -p 1-1000 192.168.148.129"`. If either is missing, throw at build time; a wrong command must fail loudly, not render empty.
+  - In `FeaturedWork`, replace the `<Image>` with `<TerminalReplay prompt=… command=… output=… description="Terminal replay of an Nmap port scan from Kali Linux against the lab target, showing 12 open ports." />`.
+  - Media wrapper:
+    - keep `lg:aspect-[1000/618]` and the dividing hairline;
+    - drop the fixed aspect below `lg` so the terminal sets its own height;
+    - background `#0F0A0B`.
+- [ ] **Step 8: `DESIGN.md`.** Under "Scroll-driven motion" → Patterns, replace "The featured project screenshot grows from an inset frame toward full width." with "The featured project's terminal replays its Nmap scan once as it enters, in the shell palette (Brass prompt, Bone command, Dusk Mauve output); under reduced motion it shows the final output."
+- [ ] **Step 9: Write `tests/terminal-replay.spec.ts`:**
+  - `shows final output under reduced motion`: emulate reduced motion, scroll `[data-terminal-replay]` into view. Immediately, its text contains `21/tcp open ftp` and `514/tcp open shell`.
+  - `plays once on entering view`:
+    - At the top of the page, the terminal text does not contain `21/tcp`.
+    - Scroll it into view and wait 3s: the text contains all 12 port lines.
+    - Scroll to the top and back, wait 500ms: the text still contains `514/tcp open shell` (no replay or reset).
+  - `readable and not clipped` (desktop and mobile projects): `<pre>` computed font-size ≥ 12px; `[data-terminal-replay]` `scrollHeight <= clientHeight + 1`; `document.documentElement.scrollWidth <= innerWidth`.
+  - `shell palette only`: the prompt span's computed colour is `rgb(214, 180, 138)`; no element under `[data-terminal-replay]` has a computed colour or border colour of `rgb(255, 255, 255)`, or one matching cyan `#35D3EB` or violet `#705CFF`/`#B9AEFF`.
+  - `link name stays short`: the featured link's accessible name (`getByRole("link", { name: /Reconnaissance Lab/ })`) does not contain `514/tcp`; `[data-terminal-replay]` has `aria-hidden="true"`.
+- [ ] **Step 10:** Run `npm run test:e2e -- tests/terminal-replay.spec.ts`, then the full `npm run test:unit` and `npm run test:e2e`. Expected: all pass.
+- [ ] **Step 11: Browser check (user).** Scroll to "Systems I've taken apart." Expected:
+  - the featured card shows a dark terminal that types the nmap command and prints 12 ports once;
+  - it's readable on a phone with nothing cut off;
+  - with reduced motion on, the full output is there at once.
+- [ ] **Step 12:** Commit the files from this task with the message "Replace featured screenshot with terminal replay".
