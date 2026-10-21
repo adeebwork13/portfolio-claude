@@ -269,3 +269,115 @@ Project screenshots sit in a frame that tilts on hover (perspective 1200px, rota
 - **Don't** use hard, dark drop shadows or thick borders for elevation; borders stay 1px hairlines.
 - **Don't** introduce square-cornered containers or non-pill buttons.
 - **Don't** use a light theme or white page backgrounds.
+
+## Redesign Direction
+
+> **Status: direction only, not implemented.** Nothing above changes until this is built. Where it conflicts with an earlier rule, it says so explicitly. Scope is the homepage (the brand shell); topic pages keep their own worlds.
+
+**Thesis: "The Lit Workbench, after dark."** The visitor walks the length of the bench. Scroll moves the lamp from station to station, and each station is a chapter. The identity, the Oxblood / Brass / Bone palette, the Ink Black base, Archivo and Geist Mono all stay. What changes is pacing: the page becomes a sequence of lit scenes instead of a stack of sections.
+
+### Chapters
+
+The homepage becomes numbered chapters, mapped to the content that already exists:
+
+| Chapter | Content |
+|---|---|
+| Prologue | Name, the "I take systems apart to see how they work" headline, the 3D hero object, See the work and Resume |
+| 01 | Systems I've taken apart: featured Reconnaissance Lab, then the project cards |
+| 02 | Designed at work. Dissected in the lab. |
+| 03 | Written up to explain. |
+| 04 | Connect: the existing contact panel, design unchanged |
+
+- **The numbers earn their place** because the sequence is the story. This is the one sanctioned exception to "no section numbers".
+- **Numerals sit inline with the heading, not above it**, so the Heading Speaks Alone rule still holds. Set them in Archivo 900 at 88% width in Brass, on the heading's baseline and left of the title (for example "01 Systems I've taken apart."). They are part of the `h2` text, so screen readers announce them.
+- **Chapters stay skimmable.** Each chapter's heading and first piece of evidence are readable within one viewport of entering it, without waiting for an animation to finish.
+
+### The hero object
+
+**One** glowing, real-time 3D object anchors the prologue. It is the lamp on the bench.
+
+- **Subject (decided): "Defense in depth", an exploded server and security stack with an AI core.** At rest it is a single dark, layered server stack. Taken apart, it shows the security layers that protect a system, which acts out the headline.
+- **Layers, in explode order from the outside in.** Each layer carries a small label:
+  1. **01 Network**
+  2. **02 Firewall**
+  3. **03 Operating System**
+  4. **04 Application**
+  5. **05 Data**
+  6. Then the **AI Core** rises to center. This is the payoff.
+- **Labels:**
+  - Geist Mono at 12px or larger, in Bone, with the number in Brass.
+  - Each label appears beside its layer as that layer separates.
+  - They are data labels, not headings, so the Heading Speaks Alone rule is untouched.
+  - Their two-digit numbers use the mono data style, never the Archivo 900 chapter numerals, so layer 01 can't be mistaken for Chapter 01.
+- **Material and light:**
+  - Dark, matte machined layers.
+  - Brass edge highlights on each layer's rim.
+  - The AI core is the only light source in the scene: an Oxblood emissive core that brightens as it is revealed. With the core hidden, the stack reads only by its Brass edges.
+  - Restrained bloom, limited to the core. No particles, neon, holograms, starfields or holographic grids.
+- **Behavior:**
+  - At rest: a slow idle rotation of the assembled stack.
+  - Prologue scroll drives the explode: layers separate outward one at a time, in the order above, each label arriving with its layer. Then the AI core rises to center and brightens.
+  - Everything reassembles as the visitor scrolls back up.
+  - Pointer parallax of at most 6°.
+  - The object recedes and dims as Chapter 01 arrives. It does not follow the visitor down the page.
+- **Only one.** No other WebGL on the page. Chapter visuals use the real screenshots and typography.
+- **Asset:** built procedurally in code with React Three Fiber. There is no external model file, so the model budget is met by construction; geometry stays simple, with a low polygon count and no textures beyond the materials above.
+- **Poster:** a Playwright screenshot of the rendered scene, in its fully exploded state with the core lit, at the canvas's display size (with a 2× version). It is the reduced-motion and fallback image described below. Regenerate it whenever the scene changes.
+
+### Scroll-driven motion
+
+Apple-style scenes: a chapter pins briefly while its content advances with scroll progress, then releases.
+
+- **Patterns:**
+  - The prologue pins while the object explodes.
+  - Chapter headings reveal with a clip-path or mask wipe as they enter.
+  - The featured project screenshot grows from an inset frame toward full width.
+  - Hairlines in the lab and writing lists draw in, left to right.
+- **No scroll-jacking.** Native scroll speed, no wheel or touch hijacking, no scroll snapping. The scrollbar always tells the truth about page length.
+- **Pin budget:** at most 1 viewport of pinned scroll for the prologue and at most 1 for any chapter, so the first project sits about 2 screens down. Total page length should stay close to today's (about 5,900px on mobile).
+- **"Respect the skim" still governs.** See the work and Resume stay in the first viewport; the first project stays within about two screens of scroll.
+- **Only cheap properties are animated:** transform, opacity, clip-path, mask and filter. Never layout properties. Target 60fps on a mid-range phone.
+- **Easing:** scroll-linked motion maps progress linearly, with light smoothing. Time-based motion keeps the existing `cubic-bezier(.2,.8,.2,1)`.
+- **Content is always in the DOM** in its final, readable form. Animation only changes how it arrives.
+
+### Reduced motion and fallbacks
+
+Under `prefers-reduced-motion: reduce`:
+- No pinning and no scroll-linked transforms.
+- Chapters render in their final state.
+- The 3D object is replaced by the static poster (the Playwright screenshot of the same scene) at the same size.
+- At most, a ≤200ms opacity fade on entering content.
+
+The static poster also covers:
+- No WebGL support, or a lost WebGL context.
+- `Save-Data` or a slow connection.
+- The time before the 3D code loads, so the hero never shows an empty box.
+
+### Accessibility and performance guardrails
+
+- The largest paint on load (LCP) is the headline text, not the canvas. 3D loads after first paint, from a client-only lazy import.
+- **Budgets:**
+  - 3D runtime about 200KB gzipped.
+  - No external model file: the stack is built procedurally in code.
+  - Device pixel ratio capped at 2.
+  - Rendering pauses when the canvas is off-screen or the tab is hidden.
+- The canvas is `aria-hidden`; its meaning is carried by the headline and the poster's alt text.
+- Pinned scenes never trap keyboard focus. Tabbing to a link scrolls it fully into view.
+- Contrast and type rules above still apply mid-animation: no text crossing the glowing object below 4.5:1.
+
+### Color and light in motion
+
+- The One Lamp Rule holds: the object's light is Oxblood and Brass, never cyan or violet. Topic-world palettes stay on topic pages.
+- Ambient glows may follow the object's position during the prologue, still under 12% opacity.
+- After the prologue the page returns to the static, quiet Workbench shell.
+
+### Open decisions
+
+1. ~~The 3D subject.~~ Decided: "Defense in depth", an exploded server and security stack with an AI core (see The hero object).
+2. ~~Who produces the model and poster.~~ Decided: built procedurally with React Three Fiber; the poster is a Playwright screenshot.
+3. ~~Technical approach.~~ Decided:
+   - **3D:** three.js through React Three Fiber (`@react-three/fiber`), loaded client-only after first paint.
+   - **Scroll motion:** GSAP ScrollTrigger drives pinning and scroll-linked progress for the prologue and chapter scenes. Its scroll progress feeds the hero's explode state, so the 3D and the page share one timeline.
+   - Under reduced motion, ScrollTrigger is never initialized, rather than initialized and neutralized.
+   - No dependencies are added until implementation starts.
+4. Whether project and article pages adopt chapter numbering later, or stay as they are.
