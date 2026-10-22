@@ -1,12 +1,14 @@
 // Pure maths for the hero scene. No imports, so `node --test` can load it directly.
 
-/** Scroll progress shared between GSAP (writes target) and the R3F frame loop (smooths current). */
-export type HeroProgress = { target: number; current: number };
+/** Scroll progress written by GSAP (`target`, 0–1). The R3F frame loop keeps its own smoothed copy. */
+export type HeroProgress = { target: number };
 
 export const PLATE = { size: 2.4, thickness: 0.2, opening: 1.3, rim: 0.03 } as const;
 export const ASSEMBLED_PITCH = 0.24;
 export const EXPLODED_PITCH = 0.75;
-export const CORE = { startY: -0.48, endY: 0, radius: 0.32 } as const;
+// The core starts inside the lower half of the assembled tube (plates span -0.58..0.58),
+// low enough to read as "in the bottom" while its 0.32 radius stays fully inside.
+export const CORE = { startY: -0.24, endY: 0, radius: 0.32 } as const;
 
 export const clamp01 = (x: number): number => Math.min(1, Math.max(0, x));
 
@@ -49,3 +51,28 @@ export const stepSpin = (spin: number, delta: number, weight: number): number =>
 
 /** Stack yaw: the idle spin, faded toward FRONT_ANGLE as the explode takes over. */
 export const yawFor = (spin: number, weight: number): number => FRONT_ANGLE + spin * weight;
+
+/* Explode timeline (progress 0–1 over the 1-viewport pin). */
+export const PLATE_START = 0.05;
+export const PLATE_STAGGER = 0.1125;
+export const PLATE_DURATION = 0.2;
+
+/** 0–1 travel of one plate; plates leave in order 01 → 05 and the last lands at 0.70. */
+export const plateProgress = (progress: number, index: number): number =>
+  clamp01((progress - (PLATE_START + index * PLATE_STAGGER)) / PLATE_DURATION);
+
+/** Plate Y at a given progress: linear from assembled to exploded. */
+export const plateY = (progress: number, index: number): number => {
+  const t = plateProgress(progress, index);
+  return assembledY(index) + (explodedY(index) - assembledY(index)) * t;
+};
+
+/** A label fades in over the last 40% of its plate's travel. */
+export const labelOpacity = (plate: number): number => clamp01((plate - 0.6) / 0.4);
+
+/** The core rises and lights between 0.70 and 0.92, then holds. */
+export const coreProgress = (progress: number): number => clamp01((progress - 0.7) / 0.22);
+
+/** Frame-rate-independent smoothing toward `target`. */
+export const damp01 = (current: number, target: number, delta: number): number =>
+  current + (target - current) * (1 - Math.exp(-8 * delta));

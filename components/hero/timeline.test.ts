@@ -6,6 +6,11 @@ import {
   MAX_TILT,
   assembledY,
   clamp01,
+  coreProgress,
+  damp01,
+  labelOpacity,
+  plateProgress,
+  plateY,
   explodedY,
   idleWeight,
   parallaxAngles,
@@ -69,4 +74,35 @@ test("stepSpin wraps only while spinning freely, so blended yaw never jumps", ()
   const before = yawFor(Math.PI - 0.001, 0.5);
   const after = yawFor(stepSpin(Math.PI - 0.001, 0.1, 0.5), 0.5);
   assert.ok(Math.abs(after - before) < 0.01);
+});
+
+test("plateProgress staggers plates 01 to 05 between 0.05 and 0.70", () => {
+  assert.equal(plateProgress(0.05, 0), 0);
+  assert.equal(plateProgress(0.25, 0), 1);
+  assert.ok(close(plateProgress(0.7, 4), 1)); // float: (0.7 - 0.5) / 0.2 = 0.9999999999999998
+  assert.equal(plateProgress(0.49, 4), 0);
+  assert.ok(plateProgress(0.1, 0) > plateProgress(0.1, 1));
+});
+
+test("plateY runs from assembled to exploded", () => {
+  for (let i = 0; i < 5; i++) {
+    assert.equal(plateY(0, i), assembledY(i));
+    assert.equal(plateY(1, i), explodedY(i));
+  }
+});
+
+test("labelOpacity fades in over the last 40% of a plate's travel", () => {
+  assert.equal(labelOpacity(0.6), 0);
+  assert.equal(labelOpacity(1), 1);
+});
+
+test("coreProgress reveals the core between 0.70 and 0.92", () => {
+  assert.equal(coreProgress(0.7), 0);
+  assert.ok(close(coreProgress(0.92), 1));
+  assert.equal(coreProgress(1), 1);
+});
+
+test("damp01 smooths toward target independent of frame rate", () => {
+  assert.equal(damp01(0, 1, 0), 0);
+  assert.ok(damp01(0, 1, 10) > 0.999);
 });
