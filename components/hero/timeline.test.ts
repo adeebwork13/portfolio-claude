@@ -11,6 +11,7 @@ import {
   labelOpacity,
   plateProgress,
   plateY,
+  shouldLoad3D,
   explodedY,
   idleWeight,
   parallaxAngles,
@@ -105,4 +106,28 @@ test("coreProgress reveals the core between 0.70 and 0.92", () => {
 test("damp01 smooths toward target independent of frame rate", () => {
   assert.equal(damp01(0, 1, 0), 0);
   assert.ok(damp01(0, 1, 10) > 0.999);
+});
+
+const capable = { reducedMotion: false, saveData: false, effectiveType: "4g", webgl: true };
+
+test("shouldLoad3D loads 3D on a capable connection and device", () => {
+  assert.equal(shouldLoad3D(capable), true);
+  assert.equal(shouldLoad3D({ ...capable, effectiveType: undefined }), true);
+});
+
+test("shouldLoad3D skips 3D under reduced motion", () => {
+  assert.equal(shouldLoad3D({ ...capable, reducedMotion: true }), false);
+});
+
+test("shouldLoad3D skips 3D with Save-Data", () => {
+  assert.equal(shouldLoad3D({ ...capable, saveData: true }), false);
+});
+
+test("shouldLoad3D skips 3D on 2g and slow-2g", () => {
+  assert.equal(shouldLoad3D({ ...capable, effectiveType: "2g" }), false);
+  assert.equal(shouldLoad3D({ ...capable, effectiveType: "slow-2g" }), false);
+});
+
+test("shouldLoad3D skips 3D without WebGL", () => {
+  assert.equal(shouldLoad3D({ ...capable, webgl: false }), false);
 });

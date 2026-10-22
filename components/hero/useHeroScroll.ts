@@ -34,7 +34,7 @@ export function useHeroScroll(
       gsap.registerPlugin(ScrollTrigger);
 
       const ctx = gsap.context(() => {
-        ScrollTrigger.create({
+        const pin = ScrollTrigger.create({
           trigger: section,
           pin: section,
           // A hero taller than the viewport (phones) pins once its bottom is in view,
@@ -54,8 +54,10 @@ export function useHeroScroll(
           ease: "none",
           scrollTrigger: {
             trigger: projects,
-            start: "top bottom",
-            end: "top 40%",
+            // Starts where the pin ends. A hero shorter than the viewport already shows
+            // Chapter 01 during the pin, and the stack must stay lit through the reveal.
+            start: () => pin.end,
+            end: () => pin.end + 0.4 * window.innerHeight,
             scrub: true,
           },
         });

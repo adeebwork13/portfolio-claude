@@ -49,6 +49,8 @@ test("pin exists before canvas loads", async ({ page }) => {
   await waitForPin(page);
   expect(await page.locator(".pin-spacer").count()).toBe(1);
   expect(await page.locator("[data-hero-stage] canvas").count()).toBe(0);
+  // The held-back chunk is still in flight; release it so it can't leak into the next test.
+  await page.unrouteAll({ behavior: "ignoreErrors" });
 });
 
 test("short landscape viewport", async ({ page }) => {
@@ -87,4 +89,22 @@ test("labels are hidden from assistive tech", async ({ page }) => {
     expect(label.size).toBeGreaterThanOrEqual(12);
     expect(label.opacity).toBeGreaterThan(0.99);
   }
+});
+
+test("stack stays fully visible until the pin ends", async ({ page }) => {
+  await page.goto("/");
+  await waitForPin(page);
+  await page.waitForSelector("[data-hero-stage] canvas");
+  // 96% through the pin: the fully exploded hold, where the core is at full glow.
+  await page.evaluate(() => {
+    const spacer = document.querySelector<HTMLElement>(".pin-spacer")!;
+    const section = document.querySelector<HTMLElement>("section[data-hero]")!;
+    const start = spacer.getBoundingClientRect().top + scrollY + Math.max(0, section.offsetHeight - innerHeight);
+    window.scrollTo(0, start + 0.96 * innerHeight);
+  });
+  await page.waitForTimeout(500);
+  const opacity = await page
+    .locator("[data-hero-stage]")
+    .evaluate((el) => Number(getComputedStyle(el).opacity));
+  expect(opacity).toBe(1);
 });

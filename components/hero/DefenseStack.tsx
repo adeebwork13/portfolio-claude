@@ -138,6 +138,8 @@ export default function DefenseStack({
   const spin = useRef(0);
   const smoothed = useRef(0);
   const anchor = useMemo(() => new THREE.Vector3(), []);
+  // Label widths, measured once (reading them every frame would force layout).
+  const labelWidths = useRef<number[]>([]);
   const tilt = usePointerTilt();
 
   // Shared by all plates, so the stack costs one material and one rim geometry.
@@ -203,7 +205,9 @@ export default function DefenseStack({
       // Clear of the plate's near corner, which projects further right than the edge midpoint.
       anchor.set(PLATE.size / 2 + 0.3, 0, 0);
       plate.localToWorld(anchor).project(camera);
-      const x = ((anchor.x + 1) / 2) * size.width + (1 - o) * -6;
+      // Clamped so the longest label never runs past the canvas on narrow phones.
+      const width = (labelWidths.current[i] ||= label.offsetWidth);
+      const x = Math.min(((anchor.x + 1) / 2) * size.width, size.width - width) + (1 - o) * -6;
       const y = ((1 - anchor.y) / 2) * size.height;
       label.style.transform = `translate(${x}px, ${y}px) translateY(-50%)`;
     });

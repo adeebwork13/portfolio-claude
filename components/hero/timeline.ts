@@ -76,3 +76,18 @@ export const coreProgress = (progress: number): number => clamp01((progress - 0.
 /** Frame-rate-independent smoothing toward `target`. */
 export const damp01 = (current: number, target: number, delta: number): number =>
   current + (target - current) * (1 - Math.exp(-8 * delta));
+
+/* Whether to load the 3D scene at all; otherwise the static poster stays. */
+export type LoadEnv = {
+  reducedMotion: boolean;
+  saveData: boolean;
+  effectiveType?: string;
+  webgl: boolean;
+};
+
+export const shouldLoad3D = (env: LoadEnv): boolean =>
+  !env.reducedMotion &&
+  !env.saveData &&
+  env.webgl &&
+  env.effectiveType !== "2g" &&
+  env.effectiveType !== "slow-2g";
